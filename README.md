@@ -23,4 +23,24 @@ struct Room {
   let friends: [string]
   let isActive: bool
 }
+
+struct ContentView: View {
+  @Orchid var rooms: [Room]
+  init(query: Query) {
+    _room = .init(query: query)
+  }
+  var body: some View {
+    ScrollView {
+      if ($rooms) {
+          Text("読み込みに失敗しました")
+      } else {
+        LazyVStack {
+          ForEach(0..<rooms.count) { index in
+            Text(rooms[index].name)
+          }
+        }
+      }
+    }
+  }
+}
 ```
