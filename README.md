@@ -32,7 +32,7 @@ struct ContentView: View {
   var body: some View {
     ScrollView {
       if ($rooms) {
-          Text("読み込みに失敗しました")
+        Text("読み込みに失敗しました")
       } else {
         LazyVStack {
           ForEach(0..<rooms.count) { index in
